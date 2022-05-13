@@ -139,7 +139,7 @@ function addOrRemoveNames(e) {
 function shuffleNames(arr) {
     let cloneArr = [...arr]
 
-    let currentIndex = arr.length;
+    let currentIndex = cloneArr.length;
     let randomIndex;
 
     while (currentIndex !== 0) {
