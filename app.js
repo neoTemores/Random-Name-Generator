@@ -3,8 +3,10 @@ let nameContainer = document.querySelector('#listOfNamesContainer');
 let radioBtn = document.querySelectorAll('.radioBtn');
 let resultContainer = document.querySelector('#resultContainer');
 
+//nameToCheck used to display names with checkboxes
 let nameToCheck = [' Aaron Warren', ' Anthony Clay', ' Anthony Wright', ' Brandon Shapiro', ' Charles Stevens', ' Christopher Price', ' George Nichols', ' Gibran Reyes', ' Hunter Ritter', ' Jonathon Wazney', ' Joshua McMiller', ' Justin Smith', ' Lee Huckisson', ' Mag Orta', ' Michael Howard', ' Neo Temores', ' Robert Gordon', ' Shatawni Wright', ' Sid Bose', ' Thomas Miller', ' Wayne Odell', ' Yanchao'];
 
+//namesToGenTeams used to add/remove names based on checkboxes
 let namesToGenTeams = [];
 
 load();
