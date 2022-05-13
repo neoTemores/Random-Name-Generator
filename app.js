@@ -37,7 +37,6 @@ function displayTeams(array) {
 
     for (let i = 0; i < array.length; i++) {
         let current = array[i];
-        console.log(array);
         let teamDiv = document.createElement('div');
         teamDiv.classList.add('team');
         teamDiv.textContent = array[i].toString();
