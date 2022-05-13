@@ -161,21 +161,18 @@ function createTeams(array, teamSize) {
             tempArr = [];
         }
     }
-    //if no students are left over (even teams)
-    //just return the paired array
+    //if no students are left over (even teams) return the pairs arr
     if (tempArr.length === 0) { return pairs }
 
-    //if tempArr still contains names,
-    //push left over names to other teams!
+    //if tempArr still contains names, push left over names to other teams!
     if (tempArr.length <= pairs.length) {
         for (let i = 0; i < tempArr.length; i++) {
             pairs[i].push(tempArr[i])
         }
         return pairs;
     }
-    // if tempArr leftover names exceeds
-    // number of paired groups, create a
-    // last team with left over students
+    // if tempArr leftover names exceeds number of paired groups
+    // create a last team with left over students
     if (tempArr.length > pairs.length) {
         pairs.push(tempArr)
         return pairs
