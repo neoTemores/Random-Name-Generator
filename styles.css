@@ -1,9 +1,6 @@
 #listOfNamesContainer {
-    /* height: 200px;
-    width: 500px; */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    /* see notes below */
     grid-gap: 1em;
 }
 
