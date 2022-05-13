@@ -9,7 +9,7 @@ let namesToGenTeams = [];
 
 load();
 function load() {
-    createTeamSizeEventListeners();
+    queryRadBtnsToListenFor();
     createGenerateTeamsButton();
     displayListOfNames(nameToCheck)
 }
@@ -39,7 +39,7 @@ function displayTeams(array) {
         let current = array[i];
         let teamDiv = document.createElement('div');
         teamDiv.classList.add('team');
-        teamDiv.textContent = array[i].toString();
+        teamDiv.textContent = current.toString();
 
         resultContainer.appendChild(teamDiv);
 
@@ -56,40 +56,34 @@ function findTeamSize() {
     }
 }
 
-//listen for the radio button selected and return checked radio button
-function createTeamSizeEventListeners() {
-
+//set default btn to team of 2
+//query all radio buttons
+//sends radio btn query element to "createEventListener" function
+function queryRadBtnsToListenFor() {
     let teamOfTwo = document.querySelector('#teams2')
     teamOfTwo.checked = true;
-    teamOfTwo.addEventListener('click', (e) => {
-
-        radioBtn.forEach(e => e.checked = false)
-        return e.target.checked = true
-    })
+    createEventListener(teamOfTwo)
 
     let teamOfThree = document.querySelector('#teams3')
-    teamOfThree.addEventListener('click', (e) => {
-
-        radioBtn.forEach(e => e.checked = false)
-        return e.target.checked = true
-    })
+    createEventListener(teamOfThree)
 
     let teamOfFour = document.querySelector('#teams4')
-    teamOfFour.addEventListener('click', (e) => {
-
-        radioBtn.forEach(e => e.checked = false)
-        return e.target.checked = true
-    })
+    createEventListener(teamOfFour);
 
     let teamOfFive = document.querySelector('#teams5')
-    teamOfFive.addEventListener('click', (e) => {
+    createEventListener(teamOfFive);
+}
+
+//takes in radio element and creates event listener
+function createEventListener(element) {
+    element.addEventListener('click', (e) => {
 
         radioBtn.forEach(e => e.checked = false)
         return e.target.checked = true
     })
 }
 
-//! will create check box DOM elements of student names and append to home page
+// will create check box DOM elements of all student names and append to home page
 function displayListOfNames(arr) {
 
     for (let i = 0; i < nameToCheck.length; i++) {
@@ -117,24 +111,22 @@ function displayListOfNames(arr) {
     }
 }
 
-//! mutates array of names to generate teams based on check box
+// mutates namesToGenTeams arr to generate teams based on checked names
+// will remove or add names from namesToGenTeams array
 function addOrRemoveNames(e) {
     if (e.target.checked) {
-        // console.log(e.target.id, e.target.checked)
         namesToGenTeams.push(e.target.id);
         namesToGenTeams.sort();
-        // console.log(namesToGenTeams);
     }
     if (e.target.checked === false) {
-        // console.log(e.target.id, e.target.checked)
         let index = namesToGenTeams.indexOf(e.target.id)
         namesToGenTeams.splice(index, 1)
-        // console.log(namesToGenTeams);
     }
 
 }
 
-//! shuffles names
+//use random index to shuffles names
+//clones original namesToCheck arr to not change checkbox display
 function shuffleNames(arr) {
     let cloneArr = [...arr]
 
@@ -150,7 +142,7 @@ function shuffleNames(arr) {
     return cloneArr;
 }
 
-//! create teams based on size
+// create teams based on namesToGenTeams arr and teamSize function
 function createTeams(array, teamSize) {
     //let arr = array; uncomment this line & comment out line below to test w/o shuffling
     let arr = shuffleNames(array);
@@ -167,19 +159,23 @@ function createTeams(array, teamSize) {
             tempArr = [];
         }
     }
-
+    //if no students are left over (even teams)
+    //just return the paired array
     if (tempArr.length === 0) { return pairs }
 
+    //if tempArr still contains names,
+    //push left over names to other teams!
     if (tempArr.length <= pairs.length) {
         for (let i = 0; i < tempArr.length; i++) {
             pairs[i].push(tempArr[i])
         }
         return pairs;
     }
-
+    // if tempArr leftover names exceeds
+    // number of paired groups, create a
+    // last team with left over students
     if (tempArr.length > pairs.length) {
         pairs.push(tempArr)
         return pairs
     }
 }
-
