@@ -14,6 +14,7 @@ function load() {
     displayListOfNames(nameToCheck)
 }
 
+// creates button to generate teams
 function createGenerateTeamsButton() {
 
     let genTeamsBtn = document.createElement('button')
@@ -29,6 +30,8 @@ function createGenerateTeamsButton() {
     })
 }
 
+
+// displays the teams onto the page. 
 function displayTeams(array) {
     resultContainer.innerHTML = ""
 
@@ -45,7 +48,7 @@ function displayTeams(array) {
 
 }
 
-
+// query the radio buttons to find the team size selected. 
 function findTeamSize() {
     for (let i = 0; i < radioBtn.length; i++) {
         if (radioBtn[i].checked === true) {
@@ -54,6 +57,7 @@ function findTeamSize() {
     }
 }
 
+//listen for the radio button selected and return checked radio button
 function createTeamSizeEventListeners() {
 
     let teamOfTwo = document.querySelector('#teams2')
@@ -61,33 +65,28 @@ function createTeamSizeEventListeners() {
     teamOfTwo.addEventListener('click', (e) => {
 
         radioBtn.forEach(e => e.checked = false)
-        e.target.checked = true
-
-        return +e.target.value
+        return e.target.checked = true
     })
 
     let teamOfThree = document.querySelector('#teams3')
     teamOfThree.addEventListener('click', (e) => {
 
         radioBtn.forEach(e => e.checked = false)
-        e.target.checked = true
-        return +e.target.value
+        return e.target.checked = true
     })
 
     let teamOfFour = document.querySelector('#teams4')
     teamOfFour.addEventListener('click', (e) => {
 
         radioBtn.forEach(e => e.checked = false)
-        e.target.checked = true
-        return +e.target.value
+        return e.target.checked = true
     })
 
     let teamOfFive = document.querySelector('#teams5')
     teamOfFive.addEventListener('click', (e) => {
 
         radioBtn.forEach(e => e.checked = false)
-        e.target.checked = true
-        return +e.target.value
+        return e.target.checked = true
     })
 }
 
