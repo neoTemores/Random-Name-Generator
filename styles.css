@@ -1,17 +1,145 @@
-#listOfNamesContainer {
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: url("./images/south-park-bus-stop.jpg");
+    background-size: cover;
+
+}
+
+#homeContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    grid-gap: 1em;
+    grid-template-columns: autos auto;
+    grid-gap: 50px;
+    grid-column-gap: 100px;
+    justify-content: center;
+
+
+    grid-template-areas:
+        "header header"
+        "teamSize genButton"
+        "listOfNames resultTeams";
+}
+
+#title {
+    grid-area: header;
+    justify-self: center;
+    background-image: url("./images/woodBackground.jpeg");
+    background-position: center;
+    box-shadow: 15px 15px 15px black;
+    border-radius: 10px;
+    border: 3px solid black;
+
+}
+
+#titleText {
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 38px;
+
+}
+
+#teamSizeContainer {
+    font-weight: bold;
+    grid-area: teamSize;
+    color: white;
+    background-color: darkslateblue;
+    border-radius: 10px;
+    border: 5px solid firebrick;
+
+    box-shadow: 15px 15px 15px black;
+    justify-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+#pickTeamSize {
+    font-size: 24px;
+}
+
+input.radioBtn {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 3px;
+
+}
+
+.teamSizeLabel {
+    font-size: 20px;
+}
+
+
+#generateButton {
+    grid-area: genButton;
+    align-self: center;
+    justify-self: start;
+}
+
+#genTeamsBtn {
+    margin-left: 50px;
+    width: 280px;
+    height: 125px;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    background-color: darkorange;
+    border: 8px solid saddlebrown;
+    border-radius: 10px;
+    font-weight: bold;
+    font-style: italic;
+    box-shadow: 15px 15px 15px black;
+
+}
+
+#listOfNamesContainer {
+    grid-area: listOfNames;
+    background-color: forestgreen;
+    height: fit-content;
+    width: fit-content;
+    justify-self: center;
+    border-radius: 10px;
+    box-shadow: 15px 15px 15px black;
+
+}
+
+#resultContainer {
+    grid-area: resultTeams;
 }
 
 .nameBox {
-    width: fit-content;
+    font-size: 18px;
+    padding-left: 10px;
+    padding: 2px;
+    padding-right: 10px;
+
+    color: white;
+    /* font-weight: bold; */
+    background-color: forestgreen;
+    border-radius: 3px;
+    /* margin: 1px; */
+    border: 1px solid darkorange;
+}
+
+input.checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .team {
+    color: white;
     width: fit-content;
     border-radius: 20px;
     margin: 10px;
     padding: 1em;
-    background-color: lightblue
+    background-color: deepskyblue;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 10px 10px 10px black;
+    border: 5px solid yellow;
 }

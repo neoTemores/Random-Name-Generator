@@ -95,7 +95,7 @@ function displayListOfNames(arr) {
         let input = document.createElement('input');
         input.type = 'checkbox';
         input.id = nameToCheck[i];
-        input.class = 'checkbox'
+        input.classList.add('checkbox');
         input.checked = true
         nameBoxDiv.appendChild(input);
 
