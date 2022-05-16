@@ -4,8 +4,9 @@
 
 body {
     background-image: url("./images/south-park-bus-stop.jpg");
-    background-size: cover;
 
+    /* background-image: url("./images/southpark.png"); */
+    background-size: cover;
 }
 
 #homeContainer {

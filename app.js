@@ -41,6 +41,7 @@ function displayTeams(array) {
         let current = array[i];
         let teamDiv = document.createElement('div');
         teamDiv.classList.add('team');
+
         teamDiv.textContent = current.toString();
 
         resultContainer.appendChild(teamDiv);
@@ -166,8 +167,9 @@ function createTeams(array, teamSize) {
 
     //if tempArr still contains names, push left over names to other teams!
     if (tempArr.length <= pairs.length) {
+
         for (let i = 0; i < tempArr.length; i++) {
-            pairs[i].push(tempArr[i])
+            pairs[pairs.length - (1 + i)].push(tempArr[i])
         }
         return pairs;
     }
