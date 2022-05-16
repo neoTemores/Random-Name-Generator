@@ -38,11 +38,19 @@ function displayTeams(array) {
     resultContainer.innerHTML = ""
 
     for (let i = 0; i < array.length; i++) {
-        let current = array[i];
         let teamDiv = document.createElement('div');
         teamDiv.classList.add('team');
+        let ul = document.createElement('ul');
+        ul.textContent = `Team # ${i + 1}`
+        ul.id = "unorderedList"
 
-        teamDiv.textContent = current.toString();
+        for (let j = 0; j < array[i].length; j++) {
+            let li = document.createElement('li')
+            li.textContent = array[i][j];
+            li.classList.add('listItem')
+            ul.appendChild(li)
+        }
+        teamDiv.appendChild(ul)
 
         resultContainer.appendChild(teamDiv);
 

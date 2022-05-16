@@ -5,17 +5,19 @@
 body {
     background-image: url("./images/south-park-bus-stop.jpg");
 
-    /* background-image: url("./images/southpark.png"); */
     background-size: cover;
+}
+
+body:hover {
+    cursor: default;
 }
 
 #homeContainer {
     display: grid;
-    grid-template-columns: autos auto;
+    grid-template-columns: auto auto;
     grid-gap: 50px;
     grid-column-gap: 100px;
     justify-content: center;
-
 
     grid-template-areas:
         "header header"
@@ -74,11 +76,20 @@ input.radioBtn {
     font-size: 20px;
 }
 
+.teamSizeLabel:hover {
+    opacity: 60%;
+}
+
 
 #generateButton {
     grid-area: genButton;
     align-self: center;
     justify-self: start;
+}
+
+#generateButton:hover {
+    position: relative;
+    top: -5px;
 }
 
 #genTeamsBtn {
@@ -109,7 +120,14 @@ input.radioBtn {
 }
 
 #resultContainer {
+    height: fit-content;
     grid-area: resultTeams;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(5, auto);
+    grid-column-gap: 20px;
+    justify-items: center;
+    align-items: center;
 }
 
 .nameBox {
@@ -119,11 +137,13 @@ input.radioBtn {
     padding-right: 10px;
 
     color: white;
-    /* font-weight: bold; */
     background-color: forestgreen;
     border-radius: 3px;
-    /* margin: 1px; */
     border: 1px solid darkorange;
+}
+
+.nameBox:hover {
+    opacity: 60%;
 }
 
 input.checkbox {
@@ -132,12 +152,30 @@ input.checkbox {
     cursor: pointer;
 }
 
+#unorderedList {
+    font-size: 24px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.listItem {
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.listItem:hover {
+    opacity: 60%;
+    cursor: default;
+}
+
 .team {
     color: white;
     width: fit-content;
+    height: fit-content;
     border-radius: 20px;
-    margin: 10px;
-    padding: 1em;
+    margin-bottom: 15px;
+
+    padding-right: 20px;
     background-color: deepskyblue;
     font-size: 18px;
     font-weight: bold;
